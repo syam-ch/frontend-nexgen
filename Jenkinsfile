@@ -3,14 +3,14 @@ Jenkinsfile :   pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
-        S3_BUCKET = 'project-frontend-bucket-10-11-25 '
+        S3_BUCKET = 'frontend26'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/Amruta9993/Frontend-new-project.git',
+                    url: 'https://github.com/syam-ch/frontend-nexgen.git',
                     credentialsId: 'frontend'
             }
         }
@@ -26,7 +26,7 @@ Jenkinsfile :   pipeline {
             steps {
                 withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
                     sh 'aws s3 sync build/ s3://$S3_BUCKET --delete'
-                    sh 'aws cloudfront create-invalidation --distribution-id E28B08W45JIKSL --paths "/*"'
+                    sh 'aws cloudfront create-invalidation --distribution-id E39OF9UE9XCHGO --paths "/*"'
                 }
             }
         }

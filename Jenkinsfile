@@ -1,4 +1,4 @@
-Jenkinsfile :   pipeline {
+pipeline {
     agent any
 
     environment {

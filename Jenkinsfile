@@ -11,7 +11,7 @@ Jenkinsfile :   pipeline {
             steps {
                 git branch: 'master',
                     url: 'https://github.com/syam-ch/frontend-nexgen.git',
-                    credentialsId: 'frontend'
+                    credentialsId: 'souvik'
             }
         }
 
